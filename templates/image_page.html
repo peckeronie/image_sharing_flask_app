@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html>
+  <head>
+
+    <title>Page for a single image</title>
+    <style>
+      body {
+        margin: 0;
+        /* width: 400px; */
+      }
+      .header {
+       text-align: center;
+       font-family:verdana;
+       font-size: 15px;
+       }
+      .header:after {
+       content: "";
+       display: table;
+      clear: both;
+      }
+     input {
+      margin: 20px;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      /* width: 75%; */
+      padding: 10px;
+      /* float: left; */
+      font-size: 16px;
+    }
+   .switchBtn {
+      padding: 10px;
+      width: 200px;
+      margin: 20px;
+      background-color: #4CAF50; /* Green background */
+      border: 1px solid green; /* Green border */
+      color: #555;
+      /* float: center; */
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 0;
+      font-family:courier;
+   }
+   .switchBtn:hover {
+    background-color: #bbb;
+   }
+
+   .urlBtn {
+     padding: 10px;
+     background: #d9d9d9;
+     color: #555;
+     font-size: 14px;
+     font-family:helvetica;
+     float: none;
+     cursor: pointer;
+   }
+    </style>
+  </head>
+  <body>
+  <div id="titleHeader" class="header">
+  <h1 style="margin:5px">Bookmark an image, or remove your bookmark for an image</h1>
+  <a href="{{ url_for('home_page', username=verified_user) }}" style="font-family:georgia">Back to home page</a>
+</div>
+{% if img_src %}
+<img src="{{ img_src }}" id="{{ img_id }}">
+{% endif %}
+
+<p>
+<form action="{{ url_for('bookmark', user=verified_user, id=img_id) }}" method="POST">
+  <input type="submit" value="Bookmark"><br><br>
+</form>
+</p>
+
+<p>
+<form action="{{ url_for('unbookmark', user=verified_user, id=img_id) }}" method="POST">
+  <input type="submit" value="Remove bookmark"><br><br>
+</form>
+
+
+  </body>
+</html>

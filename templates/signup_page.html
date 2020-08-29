@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+  <head>
+
+    <title>Sign up page</title>
+    <style>
+      body {
+        margin: 0;
+        /* width: 400px; */
+      }
+      .header {
+       text-align: center;
+       font-family:verdana;
+       font-size: 15px;
+       }
+      .header:after {
+       content: "";
+       display: table;
+      clear: both;
+      }
+     input {
+      margin: 20px;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      /* width: 75%; */
+      padding: 10px;
+      /* float: left; */
+      font-size: 16px;
+    }
+   .switchBtn {
+      padding: 10px;
+      width: 200px;
+      margin: 20px;
+      background-color: #4CAF50; /* Green background */
+      border: 1px solid green; /* Green border */
+      color: #555;
+      /* float: center; */
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 0;
+      font-family:courier;
+   }
+   .switchBtn:hover {
+    background-color: #bbb;
+   }
+
+   .urlBtn {
+     padding: 10px;
+     background: #d9d9d9;
+     color: #555;
+     font-size: 14px;
+     font-family:helvetica;
+     float: none;
+     cursor: pointer;
+   }
+    </style>
+  </head>
+  <body>
+  <div id="titleHeader" class="header">
+  <h1 style="margin:5px">Page for signing up and creating an account</h1>
+  <a href="{{ url_for('login_default') }}" style="font-family:georgia">Back to login page</a>
+</div>
+      <!-- <p style="font-family:helvetica;font-size: 14px;margin:20px">Username:</p>
+       <input type="text" id="userinput1"></input>
+      <p style="font-family:helvetica;font-size: 14px;margin:20px">Password:</p>
+      <input type="text" id="userinput1"></input>
+      <button id="signup_button" class="switchBtn">Sign up</button> -->
+      <form action="/sign_up_page" method="POST">
+
+        <div class="form-group">
+          <label style="font-family:helvetica;font-size: 14px;margin:20px">Username</label>
+          <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+          <label style="font-family:helvetica;font-size: 14px;margin:20px">Password</label>
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button id="signup_button" class="switchBtn" type="submit">Sign up</button>
+
+      </form>
+      {% if message %}
+      <p style="font-family:helvetica;font-size: 14px;margin:20px">{{ message }}</p>
+      {% endif %}
+
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Website Page</title>
+</head>
+
+<body>
+    <div>
+        <!-- <h2 style="margin:5px;font-family:georgia">{{ app_store }}</h2>
+        <h2 style="margin:5px;font-family:georgia">{{ category }}</h2>
+        <p style="font-family:verdana">Top Apps of the Day:</p> -->
+        <!-- pass the URL of the route we want to post the form data to in the action attribute of the form -->
+        <form action="{{ url_for('search') }}" method="POST">
+          <div class="form-group">
+            <label style="font-family:helvetica;font-size: 14px;margin:20px">Search by tags separated by spaces:</label>
+            <input type="text" class="form-control" id="Search" name="Search">
+          </div>
+        </form>
+        <ul class="pagination">
+            {% for page in range(1,page_count+1) %}
+            <li><a href="{{ url_for('display_images', count=page) }}">{{ page }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

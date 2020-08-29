@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Website Page</title>
+    <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+    .column {
+      flex: 50%;
+      padding: 0 4px;
+    }
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      max-width: 100%;
+      height: auto;
+    }
+
+    </style>
+</head>
+
+<body>
+  <div id="titleHeader" class="header">
+    <h1 style="margin:5px">Home page</h1>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      {% for img in imgs %}
+      <img src="{{ img[1] }}" id="{{ img[0] }}">
+      {% endfor %}
+    </div>
+  </div>
+
+        <!-- <ul class="pagination">
+            {% for count in range(1,page_count+1) %}
+            <li><a href="{{ url_for('display_images', count) }}">{{ count }}</a></li>
+            {% endfor %}
+        </ul>
+    </div> -->
+</body>
+
+</html>
